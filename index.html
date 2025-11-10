@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Script Download Portal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top left, #1a002b, #000);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px #a200ff;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #a200ff, #5b0099);
+      border: none;
+      color: white;
+      padding: 14px 32px;
+      margin: 12px;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 12px #a200ff88;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px #a200ffcc;
+    }
+
+    .textbox {
+      background: #1a001f;
+      border: 1px solid #5b0099;
+      color: #d6aaff;
+      width: 400px;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menu/Executor Portal</h1>
+
+  <button class="btn" onclick="downloadFile()">Download Xeno v1.2.90</button>
+  
+  <div class="textbox" id="loadstringBox">
+    loadstring(game:HttpGet("https://github.com/maxhax123/animations/raw/refs/heads/main/skidifuwant"))()
+  </div>
+  
+  <button class="btn" onclick="copyLoadstring()">Copy Loadstring</button>
+
+  <footer>© 2025 Xeno | Built by maxhax</footer>
+
+  <script>
+    function downloadFile() {
+      const link = document.createElement('a');
+      link.href = 'https://github.com/maxhax123/megapack/raw/refs/heads/main/Xeno-v1.2.90.zip';
+      link.download = 'Xeno-v1.2.90.zip';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function copyLoadstring() {
+      const text = document.getElementById("loadstringBox").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ Loadstring copied to clipboard!");
+      });
+    }
+  </script>
+</body>
+</html>
